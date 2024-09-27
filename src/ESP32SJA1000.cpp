@@ -3,7 +3,12 @@
 
 #ifdef ARDUINO_ARCH_ESP32
 
+#include "esp_system.h" 
+#if defined(ESP_IDF_VERSION_MAJOR) && ESP_IDF_VERSION_MAJOR > 3
+#include "esp_intr_alloc.h"
+#else
 #include "esp_intr.h"
+#endif
 #include "soc/dport_reg.h"
 #include "driver/gpio.h"
 
